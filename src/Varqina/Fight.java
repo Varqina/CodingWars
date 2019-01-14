@@ -15,31 +15,16 @@ public class Fight {
     }
     public static String declareWinner(Fighter fighter1, Fighter fighter2, String firstAttacker)
     {
-        boolean isrunning=true;
         Fighter[] tab = {fighter2,fighter1};
         if(fighter1.name.equals(firstAttacker))
         {
-            tab[0]=fighter1;
-            tab[1]=fighter2;
+            tab[0]=fighter1; tab[1]=fighter2;
         }
-        int winner =0;
-        while (isrunning)
+        while (true)
         {
-            tab[1].health=tab[1].health-tab[0].damagePerAttack;
-            if(tab[1].health<=0)
-            {
-                winner=0;
-                break;
-            }
-            tab[0].health=tab[0].health-tab[1].damagePerAttack;
-            if(tab[0].health<=0)
-            {
-                winner=1;
-                break;
-            }
+            if((tab[1].health-=tab[0].damagePerAttack) <=0) return tab[0].name;
+            if((tab[0].health-=tab[1].damagePerAttack) <=0) return tab[1].name;
         }
-        return tab[winner].name;
-    }
 }
 
 class Fighter{
