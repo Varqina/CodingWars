@@ -3,7 +3,7 @@ package Varqina;
 public class SumOfNumbers {
     public static void main(String[] args) {
 
-        System.out.println(GetSum(100,100));
+        System.out.println(GetSum1(0,3));
 
 
     }
@@ -22,5 +22,9 @@ public class SumOfNumbers {
             counter+=i;
         }
         return counter;
+    }
+    public static int GetSum1(int a, int b)
+    {
+        return (a+b) * ( Math.abs(a-b)+1)/2;
     }
 }
