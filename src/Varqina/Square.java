@@ -18,9 +18,14 @@ public class Square {
         System.out.println(isSquare(202007953));
         System.out.println(isSquare(0));
 
+
     }
 
-    public static boolean isSquare(int n)
+    public static boolean isSquare(int n) //TIME 2147 MS
+    {
+        return Math.sqrt(n)%1==0;
+    }
+    public static boolean isSquare2(int n) // TIME 2202 MS
     {
         int a = (int) Math.sqrt(n);
         if ( Math.pow(a,2) == n)
@@ -29,4 +34,5 @@ public class Square {
         }
         return false;
     }
-}
+    }
+
