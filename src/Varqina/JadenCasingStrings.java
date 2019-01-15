@@ -4,8 +4,13 @@ package Varqina;
 //Your task is to convert strings to how they would be written by Jaden Smith. The strings are actual quotes from Jaden Smith, but they are not capitalized in the same way he originally typed them.
 public class JadenCasingStrings {
     public static void main(String[] args) {
-        String test = null;
-        System.out.println(toJadenCase(""));
+        String test = "Ala ma kota i ciagnie bata";
+        long start = System.currentTimeMillis()% 1000000;
+        toJadenCase(test);
+        long end = System.currentTimeMillis()% 1000000;
+
+        System.out.println(end-start);
+
     }
     public static String toJadenCase(String phrase) {
         if(phrase == null||phrase.equals("")){return null;}
