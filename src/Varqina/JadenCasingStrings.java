@@ -8,15 +8,22 @@ import java.util.stream.Collectors;
 //Your task is to convert strings to how they would be written by Jaden Smith. The strings are actual quotes from Jaden Smith, but they are not capitalized in the same way he originally typed them.
 public class JadenCasingStrings {
     public static void main(String[] args) {
-        String test = "Ala ma kota DSSA GGF asdfdasfjkasdkf asdfsdafgsyda 1321 faga 743  445566 42 dfsd  sghj a s sd f g  kk  h h    dsd gdsfg sfd gsfd gsfd sfgd";
-        long start = System.currentTimeMillis()% 1000000;
+        String test = " "
+        long start = System.currentTimeMillis();
         toJadenCase(test);
-        long end = System.currentTimeMillis()% 1000000;
-
+        long end = System.currentTimeMillis();
         System.out.println(end-start);
-        System.out.println(toJadenCase(test));
+
+        start = System.currentTimeMillis();
+        toJadenCase_2(test);
+        end = System.currentTimeMillis();
+        System.out.println(end-start);
+
+
+
 
     }
+    //stringbuilder
     public static String toJadenCase(String phrase) {
         if(phrase == null||phrase.equals("")){return null;}
         StringBuilder result = new StringBuilder();
@@ -35,14 +42,15 @@ public class JadenCasingStrings {
 
         return result.toString();
     }
-    public String toJadenCase_2(String phrase) {
-        if(phrase == null || phrase.equals("")) return null;
-
+    //faster
+    public static String toJadenCase_2(String phrase) {
         char[] array = phrase.toCharArray();
+        if(phrase == null || phrase.equals("")) return null;
+        array[0]=Character.toUpperCase(array[0]);
 
-        for(int x = 0; x < array.length; x++) {
-            if(x == 0 || array[x-1] == ' ') {
-                array[x] = Character.toUpperCase(array[x]);
+        for ( int i =0;i<array.length-1;i++) {
+            if (array[i]==' '){
+                array[i+1]=Character.toUpperCase(array[i+1]);
             }
         }
 
