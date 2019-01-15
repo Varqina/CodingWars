@@ -34,4 +34,4 @@ class Fighter{
         this.name = name;
         this.health = health;
         this.damagePerAttack = damagePerAttack;
-}}
+}}}
