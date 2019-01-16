@@ -8,7 +8,7 @@ import java.util.stream.Collectors;
 //Your task is to convert strings to how they would be written by Jaden Smith. The strings are actual quotes from Jaden Smith, but they are not capitalized in the same way he originally typed them.
 public class JadenCasingStrings {
     public static void main(String[] args) {
-        String test = " "
+        String test = " ";
         long start = System.currentTimeMillis();
         toJadenCase(test);
         long end = System.currentTimeMillis();
