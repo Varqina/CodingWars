@@ -3,39 +3,30 @@ package Varqina;
 
 public class CompareTable {
     public static void main(String[] args) {
-        int[] a = new int[]{0, 144*11, 19, 161, 19, 144, 19, 11};
-        int[] b = new int[]{121, 0, 20736, 361, 25921, 361, 20736, 361};
-        System.out.println(comp(a, b));
-        for (int i =0;i<a.length;i++)
-        {
-            System.out.println(a[i]);
-            System.out.println(b[i]);
-        }
+        int[] a = new int[]{1,3,3,4,4};
+        int[] b = new int[]{1,4,9,16,16};
+        int[] c = new int[]{};
+        System.out.println(comp(a,b));
 
 
     }
     public static boolean comp(int[] a, int[] b) {
-            if(a.length!=b.length){return false;}
+            if(a.length!=b.length || a.length==0){return false;}
             int counter=0;
             for(int i =0;i<a.length;i++)
             {
-                if (a[i]==0){return false;}
                 for ( int j=0;j<b.length;j++)
                 {
-                    if (b[j]==0){return false;}
-                    if (b[j]==Math.pow(a[i],2))
+                    if (Math.pow(a[i],2)==b[j])
                     {
                         a[i]=3;
                         b[j]=3;
                         counter++;
+                        break;
                     }
                 }
-                if (counter==a.length)
-                {
-                    return true;
-                }
+                if(counter-1!=i){return false;}
             }
-
-            return false;
+            return counter==a.length;
         }
     }
