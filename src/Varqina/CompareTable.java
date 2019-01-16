@@ -11,22 +11,25 @@ public class CompareTable {
 
     }
     public static boolean comp(int[] a, int[] b) {
-            if(a.length!=b.length || a.length==0){return false;}
-            int counter=0;
-            for(int i =0;i<a.length;i++)
+        if(a ==null || b ==null){return false;}
+        if(a.length==0 && b.length==0 ){return true;}
+        if(a.length==0 || b.length==0 ){return false;}
+        int counter=0;
+        for(int i =0;i<a.length;i++)
+        {
+            for ( int j=0;j<b.length;j++)
             {
-                for ( int j=0;j<b.length;j++)
+                if (Math.pow(a[i],2)==b[j])
                 {
-                    if (Math.pow(a[i],2)==b[j])
-                    {
-                        a[i]=3;
-                        b[j]=3;
-                        counter++;
-                        break;
-                    }
+                    a[i]=3;
+                    b[j]=3;
+                    counter++;
+                    break;
                 }
-                if(counter-1!=i){return false;}
             }
-            return counter==a.length;
+
+            if(counter-1!=i){return false;}
+        }
+        return counter==a.length;
         }
     }
