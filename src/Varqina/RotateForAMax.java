@@ -10,22 +10,25 @@ public class RotateForAMax {
     public static void main(String[] args) {
         System.out.println((maxRot(56789))==68957);
         System.out.println((maxRot(38458215))==85821534);
-
+        System.out.println((maxRot(11091468097L))==19489710160L);
     }
 
     public static long maxRot (long n) {
+        if ( n <10000){
+            return n;
+        }
         String number = String.valueOf(n);
         number+=" ";
         char[] array = number.toCharArray();
-        long[] arrayLong = new long[5];
-        for ( int i =0;i<=3;i++)
+        long[] arrayLong = new long[array.length-3];
+        for ( int i =0;i<=array.length-4;i++)
         {
 
             array[array.length-1]=array[i];
-                for ( int j =i;j<array.length-1;j++)
-                {
-                    array[j]=array[j+1];
-                }
+            for ( int j =i;j<array.length-1;j++)
+            {
+                array[j]=array[j+1];
+            }
             number="";
             for ( int k =0;k<array.length-1;k++)
             {
@@ -33,7 +36,7 @@ public class RotateForAMax {
             }
             arrayLong[i]=Long.parseLong(number);
         }
-        arrayLong[4]=n;
+        arrayLong[arrayLong.length-1]=n;
         long max=arrayLong[0];
         for ( int i=0;i<arrayLong.length;i++) {
             if ( arrayLong[i]>max){
