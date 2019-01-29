@@ -27,4 +27,17 @@ public class WriteNumberinExpandedForm {
         }
         return stringBuilder.toString();
     }
+
+    public static String bestPractice(int num)
+    {
+        String outs = "";
+        for (int i = 10; i < num; i *= 10) {
+            int rem = num % i;
+            outs = (rem > 0) ? " + " + rem + outs : outs;
+            num -= rem;
+        }
+        outs = num + outs;
+
+        return outs;
+    }
 }
