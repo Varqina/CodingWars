@@ -37,16 +37,15 @@ public class PerfectPower {
     public static int[] isPerfectPower(int n) {
         double result=0;
         if(n<4){return null;}
-        for (int i=2;i<=n/2;i++)
+        for (int i=2;i<=Math.log(n)/Math.log(2)+1;i++)
         {
-            result=0;
             for(int j =2;j<n;j++)
             {
-                result = result*i;
+                result=Math.pow(j,i);
                 if(result>n){break;}
                 if ( result==n)
                 {
-                    int[] tab ={i,j};
+                    int[] tab ={j,i};
                     return tab;
                 }
             }
